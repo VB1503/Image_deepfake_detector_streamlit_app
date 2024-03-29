@@ -1,0 +1,7 @@
+tensorflow==2.8.0
+streamlit
+streamlit-image-select
+pandas
+numpy
+matplotlib
+protobuf==3.20.0
