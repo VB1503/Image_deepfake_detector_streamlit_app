@@ -47,8 +47,8 @@ def get_prediction(model, image):
 # generate selection of sample images 
 @st.cache_data()
 def load_images():
-  real_images = ["images/Real/" + x for x in os.listdir("images/Real/")]
-  fake_images = ["images/Fake/" + x for x in os.listdir("images/Fake/")]
+  real_images = ["/app/code/PretrainedModel/streamlit_deepfake_detector/images/Real/" + x for x in os.listdir("/app/code/PretrainedModel/streamlit_deepfake_detector/images/Real/")]
+  fake_images = ["/app/code/PretrainedModel/streamlit_deepfake_detector/images/Fake/" + x for x in os.listdir("/app/code/PretrainedModel/streamlit_deepfake_detector/images/Fake/")]
   image_library = real_images + fake_images
   image_selection = np.random.choice(image_library, 20, replace=False)
 
