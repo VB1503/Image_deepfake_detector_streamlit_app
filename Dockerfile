@@ -5,14 +5,20 @@ FROM python:3.8
 # Allow statements and log messages to immediately appear in the Knative logs
 ENV PYTHONUNBUFFERED True
 
-EXPOSE 8080
+# Set the working directory in the container
+WORKDIR /app
 
-# Copy local code to the container image.
-ENV APP_HOME /app
-WORKDIR $APP_HOME
-COPY . ./
+# Copy the requirements file into the container at /app
+COPY requirements.txt .
 
 # Install production dependencies.
-RUN pip install -r requirements.txt
-RUN python3.8 -m pip install --upgrade pip
-CMD streamlit run --server.port 8080 code/PretrainedModel/streamlit_deepfake_detector/multipage_app.py
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the entire project into the container at /app
+COPY . .
+
+# Expose the port that Streamlit runs on
+EXPOSE 8501
+
+# Command to run your application
+CMD ["streamlit", "run", "--server.port", "8501", "code/PretrainedModel/streamlit_deepfake_detector/multipage_app.py"]

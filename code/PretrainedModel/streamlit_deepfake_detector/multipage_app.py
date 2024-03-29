@@ -21,7 +21,7 @@ def main():
 # function to load and cache pretrained model
 @st.cache_resource()
 def load_model():
-    path = "../dffnetv2B0/dffnetv2B0"
+    path = "/app/code/PretrainedModel/dffnetv2B0/dffnetv2B0"
     # Model reconstruction from JSON file
     with open(path + '.json', 'r') as f:
         model = model_from_json(f.read())
