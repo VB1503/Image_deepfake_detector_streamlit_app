@@ -15,5 +15,4 @@ COPY . ./
 # Install production dependencies.
 RUN pip install -r requirements.txt
 RUN python3.8 -m pip install --upgrade pip
-CMD cd code/PretrainedModel/streamlit_deepfake_detector
-CMD streamlit run --server.port 8080 multipage_app.py
+CMD streamlit run --server.port 8080 code/PretrainedModel/streamlit_deepfake_detector/multipage_app.py
